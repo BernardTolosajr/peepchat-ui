@@ -1,23 +1,24 @@
----
 language: node_js
 node_js:
-  - "0.12"
-
+- '0.12'
 sudo: false
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 before_install:
-  - export PATH=/usr/local/phantomjs-2.0.0/bin:$PATH
-  - "npm config set spin false"
-  - "npm install -g npm@^2"
-
+- export PATH=/usr/local/phantomjs-2.0.0/bin:$PATH
+- npm config set spin false
+- npm install -g npm@^2
 install:
-  - npm install -g bower
-  - npm install
-  - bower install
-
+- npm install -g bower
+- npm install
+- bower install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: TlRtsDbv7TPxJO9S1ns3x0//fhDKqA4LSG8NFmeqHfWmyoMPHiGmRodbXvC0p5nhDcjIe89FfBKsblRDRFokgWjddw0+IxwZJxAntifVm5emk+OhN3P/q/W+8Rr+dJBWMkMvlzwoumZwaM8Fn6CRbvRMDlpBW8oATc3QxHzmIzNw4EEWRhSAP7sFwr1ETFatJ5+jos9rxDdcrodD0zA0Y9sgc5YgEFQBXvIWG1EhMM1NjCM+kccKXl0q6dydayf9bw+MaLtwa7/Q8UbfCDtnDfWrwOD+tyN11e78V47b4udOh319VWBgSsdoIK+uMVP1plGXKbVYAuXeij//lnOsQBiofuTiYU2INZS29CVg+L5VDRTwgevPeVE9xbHZWpl4P+8pdJXHTsCiH+XglIfwTEuTAkQL2BI6SBT9PLfbFKp8d9iWrR9oZu3n/KXoM6X4DwB7FXE4hvPQ3A6gLJhY6tU4BMzAv8OYFs3fGF6A9PZPw1YAS87AwAQaKGiTA9ps0nbIme9slsAce0s/2ufRNyQj45ZdaI/dRelxlZ/bUAjs5h7FB93K8HCVAaG002UJBpG7L0sMEOPG16RwmfIU3baEs6WnQV55jF13Na53mAaqqU4D2dkCUm5+JPhH9H/hB8euDQgg6Qp8+2ZJ5Xpa2Dzb7qtDc9A3AFtGyjdWaOc=
+  app: gentle-lake-37521
+  on:
+    repo: BernardTolosajr/peepchat-ui
